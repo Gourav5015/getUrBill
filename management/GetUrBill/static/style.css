@@ -1,0 +1,16 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background-color: black;
+}
+.welcome{
+    text-align: center;
+    color:white;
+}
+.btn{
+    width:10opx;
+    padding-left: 20px;
+    padding-right: 20px;
+}
