@@ -6,7 +6,6 @@
 body{
     background-image:linear-gradient(rgba(1,0,0,0.7),rgba(1,0,0,0.7)),url("background.jpg");
     background-size:cover;
-    z-index: 0;
 }
 .navbar{
     width: 100%;
@@ -15,7 +14,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 60%;
 }
 .banner{
     background-image: linear-gradient(rgba(1,0,0,0.1),rgba(1,0,0,0.1));
@@ -54,8 +52,47 @@ body{
     text-align: center;
     padding: 30px;
 }
-.content h1:hover{
-    color:blue;
-    background-color: aquamarine;
+.container{
+    width:50%;
+    height:200px;
+    margin:20px auto;
+    background-color: rgba(255, 255, 255, 0.11);
+    box-shadow:10px 10px 10px black;
+    border-radius: 10px;
+    display:none;
 }
-
+.container form{
+    padding: 10px auto;
+    height: 150px;
+    top:10px;
+    padding-top: 10px;
+}
+.container form input{
+    width:80%;
+    display: flex;
+    height: 40px;
+    margin:10px auto;
+    align-items: center;
+    justify-content: center;
+}
+.container form input[type="text"],input[type="password"]{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;;
+}
+.container form input[type="submit"]{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: larger;
+}
+.hide{
+    text-align: center;
+    color:white;
+    width:100%;
+    margin: 20px auto;
+    padding: 20px auto;
+}
+.hide:hover{
+    cursor: pointer;
+}

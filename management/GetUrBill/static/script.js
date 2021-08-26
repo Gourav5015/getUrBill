@@ -1,4 +1,6 @@
 $( "#login" ).click(function() {
-   $(".content").css("background-color","red");
-   $(".content h1").css("color",'white');
+   $(".container").css("display","block");
+  });
+$( ".hide" ).click(function() {
+   $(".container").css("display","none");
   });
