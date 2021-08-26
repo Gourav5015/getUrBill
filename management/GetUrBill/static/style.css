@@ -2,11 +2,9 @@
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
-}
-body{
     background-image:url("background.jpeg");
-    background-size: cover;
-    background-position: center;
+    background-size:cover;
+    background-position:0cm;
 }
 .navbar{
     width: 100%;
@@ -15,6 +13,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 60%;
+}
+.banner{
+    background-image: linear-gradient(rgba(1,0,0,0.1),rgba(1,0,0,0.1));
 }
 .navbar ul li{
     list-style: none;
@@ -41,13 +43,17 @@ body{
     width: 100%;
 }
 .content h1{
-    margin: 20px auto;
     font-weight: 10;
     line-height: 10px;
     color: red;
-    height: 50px;
+    font-size: 40px;
     position: relative;
     justify-content: center;
     text-align: center;
+    padding: 30px;
+}
+.content h1:hover{
+    color:blue;
+    background-color: aquamarine;
 }
 
