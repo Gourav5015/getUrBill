@@ -2,9 +2,11 @@
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
-    background-image:url("background.jpeg");
+}
+body{
+    background-image:linear-gradient(rgba(1,0,0,0.7),rgba(1,0,0,0.7)),url("background.jpg");
     background-size:cover;
-    background-position:0cm;
+    z-index: 0;
 }
 .navbar{
     width: 100%;
@@ -26,7 +28,7 @@
 }
 .navbar ul li a{
     text-decoration: none;
-    color: rgb(5, 5, 5);
+    color: white;
     text-transform: uppercase;
 }
 .navbar ul li::after{
