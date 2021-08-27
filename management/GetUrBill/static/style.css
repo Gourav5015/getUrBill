@@ -17,6 +17,11 @@ body{
 }
 .banner{
     background-image: linear-gradient(rgba(1,0,0,0.1),rgba(1,0,0,0.1));
+    width: 100%;
+    float: right;
+}
+.navbar ul{
+    float: right;
 }
 .navbar ul li{
     list-style: none;
@@ -53,9 +58,11 @@ body{
     padding: 30px;
 }
 .container{
-    width:50%;
-    height:250px;
+    width:30%;
+    float: right;
+    height:450px;
     margin:20px auto;
+    padding-right: 30px;
     background-color: rgba(255, 255, 255, 0.11);
     box-shadow:10px 10px 10px black;
     border-radius: 10px;
@@ -106,3 +113,17 @@ body{
 .hide:hover{
     cursor: pointer;
 }
+.front{
+    width:70%;
+    float: left;
+    height: 250px;
+
+}
+.front h1{
+    word-wrap:break-word;
+    word-spacing: 2px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
