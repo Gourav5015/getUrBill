@@ -1,129 +1,152 @@
 *{
     margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
+    padding: 0px
 }
-body{
-    background-image:linear-gradient(rgba(1,0,0,0.7),rgba(1,0,0,0.7)),url("background.jpg");
-    background-size:cover;
+.background{
+    background-image: linear-gradient(100deg,rgb(240, 243, 239),rgb(0, 0, 0));
 }
-.navbar{
-    width: 100%;
-    margin: auto;
-    padding: 35px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.banner{
-    background-image: linear-gradient(rgba(1,0,0,0.1),rgba(1,0,0,0.1));
-    width: 100%;
-    float: right;
-}
-.navbar ul{
-    float: right;
-}
-.navbar ul li{
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    position: sticky;
-}
-.navbar ul li a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-}
-.navbar ul li::after{
-    content: '';
-    height: 3px;
-    width: 0%;
-    background: #009688;
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
-}
-.navbar ul li:hover::after{
-    width: 100%;
-}
-.content h1{
-    font-weight: 10;
-    line-height: 10px;
-    color: red;
-    font-size: 40px;
-    position: relative;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-}
-.container{
-    width:30%;
-    float: right;
-    height:450px;
-    margin:20px auto;
-    padding-right: 30px;
-    background-color: rgba(255, 255, 255, 0.11);
-    box-shadow:10px 10px 10px black;
-    border-radius: 10px;
-    display:none;
-}
-.container form{
-    padding: 10px auto;
-    height: 150px;
-    top:10px;
-    padding-top: 10px;
-}
-.container form input{
-    width:80%;
-    display: flex;
-    height: 50px;
-    margin:10px auto;
-    align-items: center;
-    justify-content: center;
-}
-.container form input[type="text"],input[type="password"]{
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid white;;
-}
-.container form input[type="submit"]{
-    background: transparent;
-    border: none;
-    color: white;
-    font-size:x-large;
-    border:1px solid red;
-    border-radius:10px;
-    width:15%;
-    background-color:red
-}
-.hide{
-    text-align: center;
-    color:white;
-    width:10%;
-    margin: 50px auto;
-    padding: 20px auto;
-    border:1px solid red;
-    border-radius:10%;
-    font-size:large;
-    background-color:red
-
-  
-}
-.hide:hover{
-    cursor: pointer;
-}
-.front{
-    width:70%;
-    float: left;
-    height: 250px;
-
-}
-.front h1{
-    word-wrap:break-word;
-    word-spacing: 2px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+body
+{
+	
+	margin:0;
+	padding:0;
+	background-size:cover;
+	font-family: sans-serif; 
 }
 
+.loginBox
+{
+	transform: translate(0%, 0%);
+	width:350px;
+	height:420px;
+	padding:80px 40px;
+	box-sizing: border-box;
+	background:rgba(0,0,0,0.5) ;
+    float: right;
+	margin-top: 30%;
+    margin-right: 10%;
+    box-shadow: 5px 10px 20px black;
+}
+
+
+
+h2
+{
+	margin:0;
+	padding:0 0 20px;
+	color:#1E90FF;
+	text-align:center;
+} 
+
+
+
+.loginBox p
+{
+	padding:0;
+	margin:0;
+	font-weight:bold;
+	color:#fff;
+	
+} 
+
+
+.loginBox input
+{
+	width:100%;
+	margin-bottom: 20px; 
+}
+
+.loginBox input[type="text"], .loginBox input[type="password"]
+{
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline:none;
+	height:40px;
+	color:#fff;
+	font-size: 16px;
+	
+	
+}
+
+
+.loginBox input[type="submit"]
+{
+	border:none;
+	outline:none;
+	height: 40px;
+	color:#fff;
+	font-size:16px;
+	background: rgb(255,38,126);
+	cursor:pointer;
+	border-radius:20px;
+}
+
+
+.loginBox input[type="submit"]:hover
+{
+	background: #efed40;
+	color: #262626;
+}
+ 
+ 
+ 
+
+.loginBox a
+{
+	color: #fff;
+	font-size:14px;
+	font-weight:bold;
+} 
+
+
+::placeholder
+{
+	color:rgba(255,255,255,0.5); 
+}
+
+
+.user
+{
+	width:100px;
+	height:100px; 
+	overflow:hidden;
+	position:absolute;
+	top:calc(-100px/2);
+	left:calc(50% - 50px);
+	border-radius:50%;
+}
+ .login{
+    background-image: linear-gradient(240deg,#20002c,#cbb4d4);
+ }
+.intro{
+    height: 100vh;
+    border-bottom: 1px solid black;
+    margin-bottom: 0px;
+}
+.row{
+    height: 100vh;
+}
+.space{
+    background-image: url("bg.jpeg");
+    background-size: cover;
+}
+
+.about{
+    height: 100vh;
+    background-color: #20002c;
+    color: #fff;
+}
+.about h1{
+    top: 10%;
+    padding-top: 5%;
+}
+.contact{
+    height: 100vh;
+    background-color: #1c0b69;
+    color: #fff;
+}
+.contact h1{
+    top: 10%;
+    padding-top: 5%;
+}
