@@ -33,18 +33,22 @@
   <section class="intro">
   <div class="row">
    <div class="col-8 space">
-    
+    <img src="{% static '1.jpg' %}" alt="image">
+    <h1 class="text-center">
+      GetUrBill
+    </h1>
    </div>
   <div class="col-4 mx-0 login">
   <div class="loginBox">
 		<img src="{% static 'user.png' %}" class="user">
 		<h2>Log In Here</h2>
-		<form>
-			<p>Email</p>
-			<input type="text" name = "" placeholder="Enter Email">
+		<form action="/dashboard/" method="POST">
+      {% csrf_token %}
+			<p>Phone Number</p>
+			<input type="text" name = "phone_number" placeholder="Enter Phone Number">
 			<p>Password</p>
-			<input type="password" name = "" placeholder="Enter Password">
-			<input type="submit" name = "" value="sign In">
+			<input type="password" name = "password" placeholder="Enter Password">
+			<input type="submit" name = "submit" value="sign In">
 			<a href="#"> Forget Password</a> 
 		</form>
   </div>

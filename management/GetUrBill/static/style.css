@@ -2,8 +2,11 @@
     margin: 0px;
     padding: 0px
 }
+html{
+	scroll-behavior: smooth;
+}
 .background{
-    background-image: linear-gradient(100deg,rgb(240, 243, 239),rgb(25, 106, 212));
+    background-image: linear-gradient(100deg,rgb(113, 171, 247),rgb(141, 155, 192),rgb(25, 106, 212));
 }
 body
 {
@@ -26,6 +29,7 @@ body
 	margin-top: 30%;
     margin-right: 10%;
     box-shadow: 5px 10px 20px black;
+	position: relative;
 }
 
 
@@ -117,7 +121,7 @@ h2
 	border-radius:50%;
 }
  .login{
-    background-image: linear-gradient(240deg,#20002c,#cbb4d4);
+    background-image: linear-gradient(240deg,#757F9A,#D7DDE8);
 
  }
 .intro{
@@ -132,11 +136,24 @@ h2
     background-color: black;
     background-size: cover;
     height: 100vh;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+.space img{
+	width: 100%;
+	height: 100vh;
+}
+.space h1{
+	color: #fff;
+	position: absolute;
+	top:20%;
+	left:20%;
+	word-spacing: 5px;
 }
 
 .about{
-    height: 70vh;
-    background-color: #20002c;
+    height: 100vh;
+	background-image: url("4.jpg");
     color: #fff;
 }
 .about h1{
