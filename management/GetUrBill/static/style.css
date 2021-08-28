@@ -3,7 +3,7 @@
     padding: 0px
 }
 .background{
-    background-image: linear-gradient(100deg,rgb(240, 243, 239),rgb(0, 0, 0));
+    background-image: linear-gradient(100deg,rgb(240, 243, 239),rgb(25, 106, 212));
 }
 body
 {
@@ -118,6 +118,7 @@ h2
 }
  .login{
     background-image: linear-gradient(240deg,#20002c,#cbb4d4);
+
  }
 .intro{
     height: 100vh;
@@ -128,21 +129,23 @@ h2
     height: 100vh;
 }
 .space{
-    background-image: url("bg.jpeg");
+    background-color: black;
     background-size: cover;
+    height: 100vh;
 }
 
 .about{
-    height: 100vh;
+    height: 70vh;
     background-color: #20002c;
     color: #fff;
 }
 .about h1{
     top: 10%;
     padding-top: 5%;
+    transition: ease-in;
 }
 .contact{
-    height: 100vh;
+    height: 60vh;
     background-color: #1c0b69;
     color: #fff;
 }
