@@ -22,4 +22,5 @@ urlpatterns = [
     path('',views.home),
     path('dashboard/',views.dashboard),
     path("logout/",views.Logout),
+    path("delete/<str:k>",views.delete,name="delete"),
 ]
