@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;  
+}
+.sidebar-div{
+   background-image: linear-gradient(#085078, #85d8ce);
+    color: white;
+    height: 100vh;
+}
+.main{
+    height: 100vh;
+}
+.sidebar{
+    list-style: none;
+}
+.Main h1{
+    font-size: 30px;
+}
+.Account h1{
+    font-size: 30px;
+}
+.sidebar-div a{
+    text-decoration: none;
+    color: white;
+}
