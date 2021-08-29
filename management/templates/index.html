@@ -42,7 +42,7 @@
   <div class="loginBox">
 		<img src="{% static 'user.png' %}" class="user">
 		<h2>Log In Here</h2>
-		<form action="/dashboard/" method="POST">
+		<form action="/" method="POST">
       {% csrf_token %}
 			<p>Phone Number</p>
 			<input type="text" name = "phone_number" placeholder="Enter Phone Number">

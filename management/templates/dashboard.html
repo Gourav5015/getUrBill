@@ -8,6 +8,15 @@
 </head>
 <body>
     <strong>welcome {{name}}</strong>
+    <form action="/dashboard/" method="post">
+        {% csrf_token %}
+    <input type="text" name="item_name" id="item_name">
+    <input type="number" name="quantity" id="quantity">
+    <input type="number" name="discount" id="discount">
+    <input type="number" name="price" id="price">
+    <input type="number" name="gst" id="gst">
+    <input type="submit" value="submit">
+</form>
     <button class="logout"><a href="/logout/">logout</a></button>
 </body>
 </html>
