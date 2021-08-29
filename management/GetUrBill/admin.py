@@ -1,4 +1,9 @@
 from django.contrib import admin
-from .models import Accounts,Items
+from .models import Accounts,Items,Bill_no,Bill_items
 # Register your models here.
-admin.site.register((Accounts,Items))
+admin.site.register((Accounts,Items,Bill_no,Bill_items))
+
+admin.site.site_title="GetUrBill"
+admin.site.site_header="GetUrBill"
+admin.site.index_title="GetUrBill Admin Portal"
+admin.site.enable_nav_sidebar=True

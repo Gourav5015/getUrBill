@@ -28,3 +28,23 @@ class Items(models.Model):
 
     def __str__(self):
         return self.item_name+" "+self.user.first_name+" "+self.user.last_name
+
+
+class Bill_no(models.Model):
+    user=models.ForeignKey(Accounts,on_delete=CASCADE)
+    bill_no=models.CharField(max_length=100,primary_key=True)
+    shop_name=models.CharField(max_length=50)
+    Address=models.TextField(default="")
+    date_of_purchase=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.bill_no
+
+class Bill_items(models.Model):
+    bill_no=models.ForeignKey(Bill_no,on_delete=CASCADE)
+    item_name=models.CharField(max_length=100)
+    quantity=models.IntegerField(default=0)
+    price=models.IntegerField(default=0)
+    discount=models.IntegerField(default=0)
+    Final_price=models.IntegerField(default=0)
+    def __str__(self):
+        return self.bill_no.bill_no +" "+ self.item_name
