@@ -150,7 +150,13 @@ h2
 	left:20%;
 	word-spacing: 5px;
 }
-
+.col-8 p{
+	color: #fff;
+	position: absolute;
+	top: 15%;
+	left: 20%;
+	font-size: small;
+}
 .about{
     height: 100vh;
 	background-image: url("4.jpg");
@@ -169,4 +175,10 @@ h2
 .contact h1{
     top: 10%;
     padding-top: 5%;
+}
+.content h1{
+	color: #fff;
+	position: absolute;
+	top:50%;
+	left:20%;
 }
