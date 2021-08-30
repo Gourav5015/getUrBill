@@ -1,6 +1,7 @@
 .form-group{
-    color: #fff;
-    background-color: black;
+    color:black;
+    width: inherit;
+    display: flex;
 }
 .load img{
     position:absolute;
@@ -9,4 +10,27 @@
     width:40px;
     height: 40px;
     display: none;
+}
+table{
+    width: 100%;
+}
+input{
+    border:none;
+    border-bottom: 1px dotted black;
+    width: 210px;
+}
+tr,td,th{
+    border: 1px dotted black;
+    border-style:dashed;
+    align-items: center;
+    text-align: center;
+}
+.Item{
+    width: 1055px;
+    display: flex;
+}
+input[type="submit"]{
+    border: none;
+    margin-left: 30%;
+    margin-top: 5%;
 }

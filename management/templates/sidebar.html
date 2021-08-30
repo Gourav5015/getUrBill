@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> dashboard</title>
+    <title>{% block title %}{% endblock title %}</title>
     <link rel="shortcut icon" href="{% static 'user.png' %}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'sidebar.css' %}">
@@ -15,7 +15,7 @@
     <section class="main">
     <div class="content">
 <div class="row">
-<div class="col-2 sidebar-div">
+<div class="col-3 sidebar-div">
 <ul class="Main Menu">
     <h1> Main Menu</h1>
      <li><a href="#">Stocks</a></li>
@@ -30,7 +30,7 @@
 
 </div>
 
-            <div class="col-10 load" id="load">
+            <div class="col-9 load" id="load">
                 <img src="{% static 'loading.gif' %}" alt="loading" id="load-img" >
                 {% block body %}
                 {% endblock body %}

@@ -1,6 +1,6 @@
 *{
     margin: 0px;
-    padding: 0px;  
+    padding: 0px;
 }
 .sidebar-div{
    background-image: linear-gradient(#085078, #85d8ce);
@@ -9,12 +9,14 @@
 }
 .main{
     height: 100vh;
+    width: 100vh;
 }
 .sidebar{
     list-style: none;
 }
 .Main h1{
     font-size: 30px;
+    padding: 20px;
 }
 .Account h1{
     font-size: 30px;
@@ -27,4 +29,7 @@
     background: transparent;
     border: none;
     color: white;
+}
+.content{
+    width: fit-content;
 }

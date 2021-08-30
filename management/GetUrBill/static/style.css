@@ -133,7 +133,6 @@ h2
     height: 100vh;
 }
 .space{
-    background-color: black;
     background-size: cover;
     height: 100vh;
 	margin-right: 0px;
@@ -146,16 +145,20 @@ h2
 .space h1{
 	color: #fff;
 	position: absolute;
-	top:20%;
-	left:20%;
+	top:27%;
+	left:12%;
 	word-spacing: 5px;
+	font-family: 'Times New Roman';
+	font-size: 90px;
 }
 .col-8 p{
 	color: #fff;
 	position: absolute;
-	top: 15%;
-	left: 20%;
+	top: 17%;
+	left: 10%;
 	font-size: small;
+	font-family: 'Times New Roman';
+	font-size: 30px;
 }
 .about{
     height: 100vh;
@@ -176,9 +179,22 @@ h2
     top: 10%;
     padding-top: 5%;
 }
-.content h1{
-	color: #fff;
-	position: absolute;
-	top:50%;
-	left:20%;
+.content p{
+	bottom: 30%;
+}
+.col-8 h2{
+	color: white;
+	top: 80%;
+	left:45%;
+	position:absolute;
+	font-family: 'Times New Roman';
+	font-size: 50px;
+}
+.col-8 h3{
+	color: white;
+	top: 70%;
+	left: 30%;
+	position:absolute;
+	font-family: 'Times New Roman';
+	font-size: 50px;
 }
