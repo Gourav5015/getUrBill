@@ -5,16 +5,14 @@
     <form action="/dashboard/" method="post" id="form">
         {% csrf_token %}
     <div class="form-group" id="form-group">
-    <tr><input type="hidden" name="count" id="count" value="0"></tr>
-    <tr><input type="text" name="item_name0" id="item_name" value="enter item"></tr>
-    <tr><input type="number" name="quantity0" id="quantity" value=0></tr>
-    <tr><input type="number" name="discount0" id="discount"value=0></tr>
-    <tr><input type="number" name="price0" id="price"value=0 onchange="dis()"></tr>
-    <input type="number" name="gst0" id="gst"value=1>
+    <tr><input type="text" name="item_name" id="item_name" value="enter item"></tr>
+    <tr><input type="number" name="quantity" id="quantity" value=0></tr>
+    <tr><input type="number" name="discount" id="discount"value=0></tr>
+    <tr><input type="number" name="price" id="price"value=0 ></tr>
+    <input type="number" name="gst" id="gst"value=1>
 </div>
-    <input type="submit" value="submit">
+    <input type="submit" value="submit" onclick="load()">
 </form>
-    <button class="add" id="add">add</button>
 
     {% if i %}
     {% for j in i%}
@@ -24,7 +22,7 @@
     <span>{{j.discount}}</span>
     <span>{{j.selling_price}}</span>
     <span>{{j.GST}}</span>
-    <span><a href="/delete/{{j.item_id}}"><button>delete
+    <span><a href="/delete/{{j.item_id}}"onclick="load()"><button>delete
     </a> </button></span>
 </div>
     {% endfor %}
