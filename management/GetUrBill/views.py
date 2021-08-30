@@ -39,7 +39,7 @@ def Logout(request):
     return redirect("/")
 
 def delete(request,k):
-    item=Items.objects.all().filter(item_name =k)
+    item=Items.objects.all().filter(item_id =int(k))
     item.delete()
     return redirect("/dashboard/")
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Accounts,Items,Bill_no,Bill_items
+from .models import Accounts,Items,Bill_no,Bill_items,Customer
 # Register your models here.
-admin.site.register((Accounts,Items,Bill_no,Bill_items))
+admin.site.register((Accounts,Items,Bill_no,Bill_items,Customer))
 
 admin.site.site_title="GetUrBill"
 admin.site.site_header="GetUrBill"
