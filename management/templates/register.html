@@ -1,0 +1,24 @@
+{% extends "sidebar.html" %}
+{% block title %} Register User{% endblock title %}
+<body>
+    {% block body %}
+    <div class="form-group" id="form-group">
+    <form action="/registeruser/" method="POST">
+        {% csrf_token %}
+       <p> <input type="text" name="phone number" id="phone number" reuired placeholder="Enter Phone Numbwe"></p>
+        <p><input type="text" name="first name" id="first name" required placeholder='Enter first name'></p>
+        <p><input type="text" name="shop name" id="shop name" required placeholder='Enter Shop name'></p>
+        <p><input type="password" name="password1" id="password1" required placeholder='Enter Password'></p>
+        <p><input type="password" name="password2" id="password2"required placeholder='Enter Password Again'></p>
+        <p><input type="submit" value="submit"></p>
+    </form>
+    </div>
+    {% if messages %} 
+    {% for message in messages %}
+    <h4>
+        {{message}}
+    </h4>
+    {% endfor %}
+    {% endif %}
+    {% endblock body %}
+</body>

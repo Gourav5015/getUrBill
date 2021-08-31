@@ -14,7 +14,7 @@
 <body>
     <section class="main">
     <div class="content">
-<div class="row">
+<div class="row ">
 <div class="col-3 sidebar-div">
 <ul class="Main Menu">
     <h1> Main Menu</h1>
@@ -25,6 +25,9 @@
 <ul class="Account">
     <h1>Account</h1>
     <li><a href="#">Profile</a></li>
+    {% if request.user.is_staff %}
+    <li><a href="/register/">Register User</a></li>
+    {% endif %}
     <li><button class="logout" onclick="logout()">logout</button></li>
 </ul>
 

@@ -2,6 +2,9 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    width: 100%;
+}
 .sidebar-div{
    background-image: linear-gradient(#085078, #85d8ce);
     color: white;
@@ -9,7 +12,7 @@
 }
 .main{
     height: 100vh;
-    width: 100vh;
+    width: 100%;
 }
 .sidebar{
     list-style: none;
@@ -29,7 +32,4 @@
     background: transparent;
     border: none;
     color: white;
-}
-.content{
-    width: fit-content;
 }

@@ -1,8 +1,12 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required 
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Accounts,Items
 from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
+from .forms import UserCreationForm
+from management import settings
+from django.contrib import messages
 
 def home(request):
     if (request.method=="POST"):
@@ -41,3 +45,26 @@ def delete(request,k):
     item.delete()
     return redirect("/dashboard/")
 
+@staff_member_required
+def register(request):
+    return render(request,"register.html")
+@staff_member_required
+def registeruser(request):
+    if request.method=='POST':
+        phone_number=request.POST['phone number']
+        first_name=request.POST['first name']
+        shop_name=request.POST['shop name']
+        password1=request.POST['password1']
+        password2=request.POST['password2']
+        if password1==password2:
+            username=Accounts.objects.all().filter(phoneNumber=phone_number).first()
+            print(username)
+            if username is None:
+                user=Accounts.objects.create_user(phoneNumber=phone_number,password=password1,first_name=first_name,shop_name=shop_name)
+                user.save()
+                messages.error(request,"Registered Successfully")
+                return redirect("/register/")
+            else :
+                messages.error(request,"phone number exists")
+                return redirect("/register/")
+   
