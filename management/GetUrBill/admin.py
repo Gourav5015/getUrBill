@@ -21,7 +21,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('__all__')}
+            'fields': ('phoneNumber','first_name','shop_name','password1','password2')}
         ),
     )
     search_fields = ('phoneNumber','shop_name')
