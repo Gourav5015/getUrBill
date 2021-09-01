@@ -56,7 +56,14 @@ class Bill_no(models.Model):
     def __str__(self):
         return self.bill_no
 
-class Bill_items(models.Model):
+    def get_total(self):
+        total=0
+        obj=self.billitems_set.all()
+        for o in obj:
+            total+=o.Final_price
+        return total
+
+class Billitems(models.Model):
     bill_no=models.ForeignKey(Bill_no,on_delete=CASCADE)
     item_name=models.CharField(max_length=100)
     quantity=models.IntegerField(default=0)

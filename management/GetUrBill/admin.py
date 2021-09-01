@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Accounts,Items,Bill_no,Bill_items,Customer
+from .models import Accounts,Items,Bill_no,Billitems,Customer
 from .forms import UserCreationForm ,UserChangeForm
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.http import Http404, HttpResponseRedirect
@@ -31,7 +31,7 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
-admin.site.register((Items,Bill_no,Bill_items,Customer))
+admin.site.register((Items,Bill_no,Billitems,Customer))
 
 admin.site.site_title="GetUrBill"
 admin.site.site_header="GetUrBill"
