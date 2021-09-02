@@ -25,4 +25,5 @@ urlpatterns = [
     path("delete/<str:k>",views.delete,name="delete"),
     path('register/',views.register),
     path('registeruser/',views.registeruser),
+    path('check/<str:phone>/',views.check),
 ]
