@@ -1,3 +1,6 @@
+*{
+    width: max-content;
+}
 .form-group{
     color:black;
     width: inherit;
@@ -7,8 +10,8 @@
     position:absolute;
     left:50%;
     top:50%;
-    width:100px;
-    height: 100px;
+    width:40px;
+    height: 40px;
     display: none;
 }
 table{
@@ -33,4 +36,7 @@ input[type="submit"]{
     border: none;
     margin-left: 30%;
     margin-top: 5%;
+}.background{
+    background-image: url('bg.jpeg');
+    background-position: center;
 }
