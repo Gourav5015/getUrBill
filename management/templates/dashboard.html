@@ -5,7 +5,7 @@
     <h1 class="text-center">
     <strong>welcome {{request.user.shop_name}}</strong></h1>
     <h1 class="text-center">Add Items</h1>
-    <form action="/dashboard/" method="post" id="form">
+    <form action="/dashboard/" method="post" id="form" name="form">
         {% csrf_token %}
     <div class="form-group" id="form-group">
         <table>
@@ -25,7 +25,7 @@
             </tr>
           </table>
 </div>
-    <input type="submit" value="Add Item" onclick="load()">
+    <input type="submit" value="Add Item" id="add">
 </form>
 {% if i %}
 <hr>
