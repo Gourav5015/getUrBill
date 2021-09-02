@@ -3,11 +3,12 @@
 {% block title %} Register User{% endblock title %}
 <body>
     {% block body %}
+    <div class="alert alert-danger" style="display:none" id="msg"></div>
     <div class="form-group" id="form-group">
     <form action="/registeruser/" method="POST" name="register">
         {% csrf_token %}
-        <div class="imput-group" id="input">
-       <p> <input type="text" name="phone number" id="phone number" reuired placeholder="Enter Phone Numbwe"></p>
+        <div class="input-group" id="input">
+       <p> <input type="text" name="phone number" id="phonenumber" reuired placeholder="Enter Phone Number"></p>
         <p><input type="text" name="first name" id="first name" required placeholder='Enter first name'></p>
         <p><input type="text" name="shop name" id="shop name" required placeholder='Enter Shop name'></p>
         <p><input type="password" name="password1" id="password1" required placeholder='Enter Password'></p>
