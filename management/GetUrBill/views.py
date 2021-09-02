@@ -7,6 +7,7 @@ from django.contrib.auth import login,logout
 from .forms import UserCreationForm
 from management import settings
 from django.contrib import messages
+from django.http import JsonResponse
 
 def home(request):
     if (request.method=="POST"):
@@ -73,4 +74,10 @@ def registeruser(request):
         else:
             messages.error(request,"enter correct password or contact your admin")
             return redirect("/register/")
-   
+def check(request,phone):
+    user=Accounts.objects.all().filter(phoneNumber=phone).first()
+    if user:
+        return JsonResponse({"status":"Phone Number Exists"})
+    else:
+        return JsonResponse( {"status":"OK"})
+
