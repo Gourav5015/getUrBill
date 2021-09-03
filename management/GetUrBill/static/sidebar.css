@@ -14,8 +14,8 @@ body{
     height: 100vh;
     width: 100%;
 }
-.sidebar{
-    list-style: none;
+.sidebar-div li{
+    text-align: left !important;
 }
 .Main h1{
     font-size: 30px;
@@ -36,4 +36,11 @@ body{
 }
 .staffpass{
     display: none;
+}
+.brand{
+    margin:0px;
+    padding: 0px;
+    height: 30px;
+    width:100%;
+    background-color: darkblue;
 }

@@ -7,9 +7,9 @@ next.addEventListener("click",function(){
     document.getElementById("staffpass").style.display="block"
 });
 
-phone=document.getElementById("phonenumber");
-phone.addEventListener("change",function(){
-    phone=phone.value;
+p=document.getElementById("phonenumber");
+p.addEventListener("change",function(){
+    phone=p.value;
     $.ajax({
         type:"GET",
         url:`/check/${phone}/`,

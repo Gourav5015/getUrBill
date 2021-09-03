@@ -1,9 +1,10 @@
-*{
-    width: max-content;
+
+.form{
+    display: flex;
 }
 .form-group{
     color:black;
-    width: inherit;
+    width:100%;
     display: flex;
 }
 .load img{
@@ -20,7 +21,6 @@ table{
 input{
     border:none;
     border-bottom: 1px dotted black;
-    width: 210px;
 }
 tr,td,th{
     border: 1px solid black;
@@ -28,7 +28,7 @@ tr,td,th{
     text-align: center;
 }
 .Item{
-    width: 1055px;
+    width: 100%;
     display: flex;
 }
 input[type="submit"]{
