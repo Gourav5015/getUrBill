@@ -23,8 +23,7 @@ input{
     width: 210px;
 }
 tr,td,th{
-    border: 1px dotted black;
-    border-style:dashed;
+    border: 1px solid black;
     align-items: center;
     text-align: center;
 }
@@ -36,7 +35,23 @@ input[type="submit"]{
     border: none;
     margin-left: 30%;
     margin-top: 5%;
-}.background{
-    background-image: url('bg.jpeg');
-    background-position: center;
+}
+.background{
+    background-image: linear-gradient(100deg,rgb(113, 171, 247),rgb(141, 155, 192),rgb(25, 106, 212));
+}
+th{
+    background-image: linear-gradient(180deg,#141e30, #243b55);
+    font-family: 'Times New Roman';
+    color:whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    color: red;
+    font-family: 'Times New Roman';
+}
+.Item td{
+    font-family: 'Times New Roman';
+    background-color: gold;
+    color: black;
 }

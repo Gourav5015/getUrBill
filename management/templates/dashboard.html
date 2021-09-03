@@ -10,14 +10,14 @@
     <div class="form-group" id="form-group">
         <table>
             <tr>
-              <th>Item Name</th>
+              <th>Particulars</th>
               <th>Quantity</th>
               <th>Discount</th>
               <th>price</th>
               <th>GST</th>
             </tr>
             <tr>
-                <td><input type="text" name="item_name" id="item_name" placeholder="enter item" required></td>
+                <td><input type="text" name="item_name"id="Particulars" placeholder="enter item" required></td>
                 <td><input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" required></td>
                 <td><input type="number" name="discount" id="discount"placeholder="Enter Discount" required></td>
                 <td><input type="number" name="price" id="price"placeholder="Enter Price" required></td>
@@ -34,7 +34,7 @@
 <table style="width:100%">
     <tr>
         <th>Sl.no</th>
-      <th>Item Name</th>
+      <th>Particulars</th>
       <th>Quantity</th>
       <th>Discount</th>
       <th>Price</th>
@@ -49,13 +49,12 @@
       <td>{{j.discount}} %</td>
       <td>Rs. {{j.selling_price}}</td>
       <td>{{j.GST}} %</td>
-      <td><a href="/delete/{{j.item_id}}"onclick="load()">delete</a></td>
+      <td><a href="/delete/{{j.item_id}}"onclick="load()">Delete</a></td>
     </tr>
     {% endfor %}
   </table>
 </div>
     {% else %}
-    
     <p class="text-center">You Do not have any Items.</p>
     {% endif %}
 {% endblock body %}
