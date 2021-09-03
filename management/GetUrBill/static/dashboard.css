@@ -1,10 +1,9 @@
-
-.form{
-    display: flex;
+*{
+    width: max-content;
 }
 .form-group{
     color:black;
-    width:100%;
+    width: inherit;
     display: flex;
 }
 .load img{
@@ -21,6 +20,7 @@ table{
 input{
     border:none;
     border-bottom: 1px dotted black;
+    width: 210px;
 }
 tr,td,th{
     border: 1px solid black;
@@ -28,13 +28,12 @@ tr,td,th{
     text-align: center;
 }
 .Item{
-    width: 100%;
+    width: 1055px;
     display: flex;
 }
 input[type="submit"]{
     border: none;
-    margin-left: 30%;
-    margin-top: 5%;
+   margin: 5% auto;
 }
 .background{
     background-image: linear-gradient(100deg,rgb(113, 171, 247),rgb(141, 155, 192),rgb(25, 106, 212));
@@ -54,4 +53,84 @@ a{
     font-family: 'Times New Roman';
     background-color: gold;
     color: black;
+}
+.Item th:nth-child(2){
+    background: url('particulars.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 20%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.Item th:nth-child(3){
+    background: url('quantity.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.Item th:nth-child(4){
+    background: url('discount.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.Item th:nth-child(5){
+    background: url('price.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form-group th:nth-child(1){
+    background: url('particulars.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form-group th:nth-child(2){
+    background: url('quantity.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form-group th:nth-child(3){
+    background: url('discount.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form-group th:nth-child(4){
+    background: url('price.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    align-items: left;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
 }

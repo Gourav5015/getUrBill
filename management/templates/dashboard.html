@@ -41,7 +41,7 @@
       <th>GST</th>
       <th>Action</th>
     </tr>
-    {% for j in i%}
+    {% for j in i %}
     <tr>
       <td>{{forloop.counter}}</td>
       <td>{{j.item_name}}</td>
@@ -54,8 +54,8 @@
     {% endfor %}
   </table>
 </div>
-    {% else %}
-    <p class="text-center">You Do not have any Items.</p>
+   {% else %}
+    <p class="text-center">You Do n {ot have any Items.</p>
     {% endif %}
 {% endblock body %}
 </body>
