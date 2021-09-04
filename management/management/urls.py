@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from GetUrBill import views
+from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,8 @@ urlpatterns = [
     path('register/',views.register),
     path('registeruser/',views.registeruser),
     path('check/<str:phone>/',views.check),
+    url(r'^jet/', include('jet.urls', 'jet')),
+    url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+    url(r'^admin/',(admin.site.urls)),
+   
 ]
