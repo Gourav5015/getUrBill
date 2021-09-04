@@ -4,12 +4,14 @@ from .forms import UserCreationForm ,UserChangeForm
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.http import Http404, HttpResponseRedirect
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.sessions.models import Session
 from django.contrib.auth.forms import AdminPasswordChangeForm
 # Register your models here.
 
 class billinline(admin.TabularInline):
     model=Billitems
-
+class itemsinline(admin.TabularInline):
+    model=Items
 
 
 @admin.register(Bill_no)
@@ -18,6 +20,7 @@ class customer(admin.ModelAdmin):
 @admin.register(Accounts)
 class UserAdmin(BaseUserAdmin):
     model=Accounts
+    inlines=(itemsinline,)
     form = UserChangeForm
     add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
@@ -41,7 +44,7 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
-admin.site.register((Items,Billitems,Customer))
+admin.site.register((Items,Billitems,Customer,Session))
 
 admin.site.site_title="GetUrBill"
 admin.site.site_header="GetUrBill"

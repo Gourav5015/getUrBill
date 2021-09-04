@@ -4,14 +4,27 @@
 {% block link %} <link rel="stylesheet" href="{% static 'register.css' %}">{% endblock link %}
 <body>
     {% block body %}
-    <div class="alert alert-danger" style="display:none" id="msg"></div>
+    
     <div class="form-group" id="form-group">
     <form action="/registeruser/" method="POST" name="register">
         {% csrf_token %}
         <div class="input-group" id="input">
             <h3>Register User</h3>
             <hr>
+            <div class="alert alert-danger {{messages.tags}}" style="display:none" id="msg">
+                {% if messages %} 
+                <style>
+                    .alert{
+                        display: block !important;
+                    }
+                </style>
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+                {% endif %}
+            </div>
       <input type="text" name="phone number" id="phonenumber" reuired placeholder="Enter Phone Number">
+      
     <input type="text" name="first name" id="first name" required placeholder='Enter first name'>
     <input type="text" name="shop name" id="shop name" required placeholder='Enter Shop name'>
     <input type="password" name="password1" id="password1" required placeholder='Enter Password'>
@@ -28,13 +41,8 @@
     <button  value="next" id="next">next</button>
     </div>
    
-    {% if messages %} 
-    {% for message in messages %}
-    <h4>
-        {{message}}
-    </h4>
-    {% endfor %}
-    {% endif %}
+   
+  
     <script src="{% static 'register.js' %}"></script>
     {% endblock body %}
     
