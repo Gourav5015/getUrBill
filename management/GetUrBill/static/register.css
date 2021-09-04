@@ -1,0 +1,47 @@
+
+.load{
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: linear-gradient(rgb(165, 252, 138),rgb(243, 165, 113));
+}
+.form-group{
+    display: flex;
+    width:30% !important;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(7, 6, 6, 0.726);
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow:1px 1px 5px 10px rgba(15, 14, 14, 0.514);
+    
+    
+}
+.form-group button{
+    margin: .5em auto;
+    border: none;
+    border-bottom: 1px dotted black;
+    width: 210px;
+}
+.staffpass{
+    position: relative;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group{
+    display: block;
+    color: white;
+
+}
+.form-group .input-group input,.form-group .staffpass input{
+    margin: .5em auto;
+    background: transparent;
+    border-bottom: solid rgba(255, 255, 255, 0.836);
+}
+.form-group .staffpass input[type="submit"]{
+    background-color: white;
+}
