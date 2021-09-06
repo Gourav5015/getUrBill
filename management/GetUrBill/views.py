@@ -60,7 +60,12 @@ def edit(request,k):
         item=Items(item_id=i.item_id,user=request.user,item_name=item_name,quantity=quantity,GST=gst,discount=discount,selling_price=price)
         item.save()
         return redirect ("/dashboard/")
-    return render (request ,"edit.html",context)
+
+    if i:
+        return render (request ,"edit.html",context)
+
+    else:
+        return redirect("/dashboard/")
 
 @staff_member_required
 def register(request):
