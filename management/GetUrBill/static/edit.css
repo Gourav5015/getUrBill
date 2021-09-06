@@ -1,0 +1,16 @@
+.load {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.form input{
+    width:50%;
+}

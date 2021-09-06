@@ -6,6 +6,7 @@
 
 <body>
     {% block body %}
+    <div class="form">
     <form action="/edit/{{item.item_id}}" method="post">
         {% csrf_token %}
         <input type="text" name="item_name" id="Particulars" value="{{item.item_name}}" required>
@@ -15,5 +16,7 @@
         <input type="number" name="gst" id="gst"  value="{{item.GST}}"required>
         <input type="submit" value="submit">
     </form>
+</div>
+</div>
     {% endblock body %}
 </body>
