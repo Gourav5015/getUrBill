@@ -1,0 +1,19 @@
+{% extends "sidebar.html" %}
+{% load static %}
+{% block title %}Edit item{% endblock title %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'edit.css' %}">{% endblock link %}
+
+<body>
+    {% block body %}
+    <form action="/edit/{{item.item_id}}" method="post">
+        {% csrf_token %}
+        <input type="text" name="item_name" id="Particulars" value="{{item.item_name}}" required>
+        <input type="number" name="quantity" id="quantity"  value="{{item.quantity}}"required>
+        <input type="number" name="discount" id="discount"  value="{{item.discount}}"required>
+        <input type="number" name="price" id="price"  value="{{item.selling_price}}" required>
+        <input type="number" name="gst" id="gst"  value="{{item.GST}}"required>
+        <input type="submit" value="submit">
+    </form>
+    {% endblock body %}
+</body>

@@ -50,7 +50,7 @@
       <td>{{j.discount}} %</td>
       <td>Rs. {{j.selling_price}}</td>
       <td>{{j.GST}} %</td>
-      <td><a href="/delete/{{j.item_id}}"onclick="load()">Delete</a></td>
+      <td><a href="/delete/{{j.item_id}}"onclick="load()">Delete</a> | <a href="/edit/{{j.item_id}}"onclick="load()">Edit</a></td>
     </tr>
     {% endfor %}
   </table>

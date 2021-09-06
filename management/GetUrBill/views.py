@@ -46,6 +46,22 @@ def delete(request,k):
     item.delete()
     return redirect("/dashboard/")
 
+def edit(request,k):
+    i=Items.objects.all().filter(item_id =int(k)).first()
+    context={"item":i}
+    if request.method=="POST":
+
+        item_name=request.POST['item_name']
+        quantity=request.POST['quantity']
+        discount=request.POST['discount']
+        gst=request.POST['gst']
+        price=request.POST['price']
+        user=request.user
+        item=Items(item_id=i.item_id,user=request.user,item_name=item_name,quantity=quantity,GST=gst,discount=discount,selling_price=price)
+        item.save()
+        return redirect ("/dashboard/")
+    return render (request ,"edit.html",context)
+
 @staff_member_required
 def register(request):
     return render(request,"register.html")
