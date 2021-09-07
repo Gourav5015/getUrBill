@@ -102,3 +102,9 @@ def check(request,phone):
     else:
         return JsonResponse( {"status":"OK"})
 
+
+def bill(request):
+    return render (request, "bill.html")
+
+def myaccount(request):
+    return render (request, "myaccount.html")

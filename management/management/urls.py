@@ -28,6 +28,8 @@ urlpatterns = [
     path('register/',views.register),
     path('registeruser/',views.registeruser),
     path('check/<str:phone>/',views.check),
+    path('bill/',views.bill),
+    path('account/',views.myaccount),
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/',(admin.site.urls)),

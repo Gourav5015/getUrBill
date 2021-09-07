@@ -28,11 +28,11 @@
     <h1> Main Menu</h1>
      <li><a href="#">Stocks</a></li>
      <li><a href="#">Accounts</a></li>
-     <li><a href="#">Bills</a></li>
+     <li><a href="/bill/">Bills</a></li>
 </ul>
 <ul class="Account">
     <h1>Account</h1>
-    <li><a href="#">Profile</a></li>
+    <li><a href="/account/">Profile</a></li>
     {% if request.user.is_staff %}
     <li><a href="/register/">Register User</a></li>
     {% endif %}
