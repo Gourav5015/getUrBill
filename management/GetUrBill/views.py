@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required 
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Accounts,Items
+from .models import Accounts, Customer,Items
 from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from .forms import UserCreationForm
@@ -107,6 +107,13 @@ def check(request,phone):
 
 def bill(request):
     items=request.user.items_set.all()
+    if request.method=="POST":
+        name=request.POST['name']
+        phonenumber=request.POST['phonenumber']
+        email=request.POST['email']
+        customer= request.user.customer_set.create(name=name,email=email,contact_no=phonenumber)
+        bill_num=customer.bill_no_set.create(user=request.user,shop_name=request.user.shop_name,Address=request.user.Address,bill_no=billno(request))
+        return redirect("/createbill/")
     return render (request, "bill.html",{"i":items})
 
 def myaccount(request):
@@ -116,13 +123,24 @@ def myaccount(request):
 def billno(request):
     b=str(request.user.shop_name)+"/"+str(datetime.date.today())+"/"+ str(random.randint(10000,100000))
     return b
-
+def finalprice(price,discount):
+    return price-(discount*price/100)
 def createbill(request):
-    if request.method=="POST":
-        name=request.POST['name']
-        phonenumber=request.POST['phonenumber']
-        email=request.POST['email']
-        customer= request.user.customer_set.create(name=name,email=email,contact_no=phonenumber)
-        customer.bill_no_set.create(user=request.user,shop_name=request.user.shop_name,Address=request.user.Address,bill_no=billno(request))
-        return render (request,"newbill.html")
-    return redirect("/bill/")
+    customer=request.user.customer_set.all().last()
+    bill_num=customer.bill_no_set.all().first()
+    items=request.user.items_set.all()
+    if(request.method=="POST"):
+        itemname=request.POST["itemselected"]
+        quantity=request.POST["quantity"]
+        bill_number=request.POST["bill number"]
+        item_name=request.user.items_set.all().filter(item_name=itemname).first()
+        bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
+        price=int (item_name.selling_price)
+        price=(price*int(quantity))
+        item_name.quantity=int(item_name.quantity)-int(quantity)
+        item_name.save()
+        bill_n.billitems_set.create(item_name=itemname,quantity=quantity,price=price,discount=item_name.discount,Final_price=finalprice(price,item_name.discount))
+
+    return render (request,"newbill.html",{"bill_number":bill_num,"customer":customer,"item":items})
+
+    
