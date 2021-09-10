@@ -3,6 +3,43 @@
 {% block title %}Create Bill{% endblock title %}
 {% block link %}
 <link rel="stylesheet" href="{% static 'newbill.css' %}">{% endblock link %}
+
 <body>
-        {% block body %}{% endblock body %}
+        {% block body %}
+        <div class="main">
+                <div class="billinfo">
+                        <div class="personalinfo">
+                                Name:{{customer.name}}
+                                <br>
+                                Phone Number:{{customer.contact_no}}
+                        </div>
+                        <div class="sellerinfo">
+                                Bill Number:{{bill_number.bill_no}}
+                                <br>
+                                Shop Name:{{bill_number.shop_name}}
+                                <br>
+                                Address:{{bill_number.Address}}
+                                <br>
+                                Date Of Purchase:{{bill_number.date_of_purchase}}
+                        </div>
+
+                </div>
+                <div class="additem">
+                        <form action="/createbill/" method="post">
+                      
+                        {% csrf_token %}
+                        <select name="itemselected" id="itemselected">
+                                {% for i in item %}
+                                <option value="{{i.item_name}}">{{i.item_name}}</option>
+                                {% endfor %}
+                        </select>
+                        <input type="number" name="quantity" id="quantity">
+                        <input type="hidden" name="bill number" id="bill number" value={{bill_number.bill_no}}>
+                        <button>Add</button>
+                        <input type="submit" value="submit">
+                </form>
+                </div>
+                <div class="billitem"></div>
+        </div>
+        {% endblock body %}
 </body>
