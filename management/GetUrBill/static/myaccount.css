@@ -1,0 +1,10 @@
+.load{
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: url('registration.png');
+    background-repeat: none;
+    background-size: cover;
+}

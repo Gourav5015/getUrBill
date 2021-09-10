@@ -9,12 +9,23 @@
     <div class="form">
     <form action="/edit/{{item.item_id}}" method="post">
         {% csrf_token %}
-        <input type="text" name="item_name" id="Particulars" value="{{item.item_name}}" required>
-        <input type="number" name="quantity" id="quantity"  value="{{item.quantity}}"required>
-        <input type="number" name="discount" id="discount"  value="{{item.discount}}"required>
-        <input type="number" name="price" id="price"  value="{{item.selling_price}}" required>
-        <input type="number" name="gst" id="gst"  value="{{item.GST}}"required>
-        <input type="submit" value="submit">
+        <table>
+        <tr>
+            <th>Particulars</th>
+            <th>Quantity</th>
+            <th>Discount</th>
+            <th>Price</th>
+            <th>GST</th>
+          </tr>
+        <tr>
+        <td><input type="text" name="item_name" id="Particulars" value="{{item.item_name}}" required></td>
+        <td><input type="number" name="quantity" id="quantity"  value="{{item.quantity}}"required></td>
+        <td><input type="number" name="discount" id="discount"  value="{{item.discount}}"required></td>
+        <td><input type="number" name="price" id="price"  value="{{item.selling_price}}" required></td>
+        <td><input type="number" name="gst" id="gst"  value="{{item.GST}}"required></td>
+        </tr>
+    </table>
+    <button>submit</button>
     </form>
 </div>
 </div>

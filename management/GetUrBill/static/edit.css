@@ -2,15 +2,73 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url('registration.png');
+    background-repeat: none;
+    background-size: cover;
 }
 .form{
-    width: 50%;
+    width: inherit;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: column;
+    color: black;
 }
 .form input{
     width:50%;
+    background-color: gold;
+}
+.form td{
+    font-family: 'Times New Roman';
+    background-color: gold;
+    color: black;
+}
+.form button{
+    position: absolute;
+    top: 70%;
+    background-color: rgb(196, 44, 44);
+    border-color: rgb(8, 6, 6);
+    border: 5% auto;
+    tab-size: 50%;
+    font-size: x-large;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    border-radius: 10px;
+    right: 35%;
+    color: white;
+}
+.form th:nth-child(1){
+    background: url('particulars.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    background-position-x: 10%;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form th:nth-child(2){
+    background: url('quantity.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    background-position-x: 12%;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form th:nth-child(3){
+    background: url('discount.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    background-position-x: 12%;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.form th:nth-child(4){
+    background: url('price.png'),linear-gradient(180deg,#141e30, #243b55);
+    background-size: contain;
+    background-position-x: 12%;
+    justify-content: left;
+    image-resolution: 225px;
+    object-fit: contain;
+    background-repeat: no-repeat;
 }

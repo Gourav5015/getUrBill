@@ -14,7 +14,7 @@
               <th>Particulars</th>
               <th>Quantity</th>
               <th>Discount</th>
-              <th>price</th>
+              <th>Price</th>
               <th>GST</th>
             </tr>
             <tr>
@@ -48,7 +48,7 @@
       <td>{{j.item_name}}</td>
       <td>{{j.quantity}}</td>
       <td>{{j.discount}} %</td>
-      <td>Rs. {{j.selling_price}}</td>
+      <td>₹ {{j.selling_price}}</td>
       <td>{{j.GST}} %</td>
       <td><a href="/delete/{{j.item_id}}"onclick="load()">Delete</a> | <a href="/edit/{{j.item_id}}"onclick="load()">Edit</a></td>
     </tr>

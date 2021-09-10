@@ -6,7 +6,7 @@ body{
     width: 100%;
 }
 .sidebar-div{
-   background-image: linear-gradient(#085078, #85d8ce);
+   background-image: linear-gradient(#BB377D, #FBD3E9);
     color: white;
     height: 100vh;
     
@@ -48,4 +48,10 @@ body{
     height: 30px;
     width:100%;
     background-color: darkblue;
+    color: aliceblue;
+}
+.navbar-brand{
+    color: white;
+    font-family: 'Lucida Sans';
+
 }
