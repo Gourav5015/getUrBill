@@ -4,5 +4,20 @@
 {% block link %}
 <link rel="stylesheet" href="{% static 'bill.css' %}">{% endblock link %}
 <body>
-    {% block body %}{% endblock body %}
+    {% block body %}
+    <h1>Create new bill</h1>
+    <form action="/createbill/" method="post">
+    <div class="newbill">
+     
+     <div class="contact">
+         {% csrf_token %}
+         Name : <input type="text" name="name" id="name"><br>
+         phone number : <input type="number" name="phonenumber" id="phonenumber"><br>
+         email : <input type="email" name="email" id="email"><br>
+         <input type="submit" value="Next">
+     </div>  
+    </div>
+    </form>
+    
+    {% endblock body %}
 </body>

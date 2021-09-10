@@ -8,6 +8,7 @@ from .forms import UserCreationForm
 from management import settings
 from django.contrib import messages
 from django.http import JsonResponse
+import random,datetime
 
 def home(request):
     if (request.method=="POST"):
@@ -33,7 +34,8 @@ def dashboard(request):
         item=Items(user=user,item_name=item_name,quantity=quantity,GST=gst,discount=discount,selling_price=price)
         item.save()
         return redirect("/dashboard/")
-    items=Items.objects.all().filter(user=request.user)
+    #items=Items.objects.all().filter(user=request.user)
+    items=request.user.items_set.all()
     context={"i":items}
     return render(request ,"dashboard.html",context)
 
@@ -104,7 +106,23 @@ def check(request,phone):
 
 
 def bill(request):
-    return render (request, "bill.html")
+    items=request.user.items_set.all()
+    return render (request, "bill.html",{"i":items})
 
 def myaccount(request):
     return render (request, "myaccount.html")
+
+# bill no function
+def billno(request):
+    b=str(request.user.shop_name)+"/"+str(datetime.date.today())+"/"+ str(random.randint(10000,100000))
+    return b
+
+def createbill(request):
+    if request.method=="POST":
+        name=request.POST['name']
+        phonenumber=request.POST['phonenumber']
+        email=request.POST['email']
+        customer= request.user.customer_set.create(name=name,email=email,contact_no=phonenumber)
+        customer.bill_no_set.create(user=request.user,shop_name=request.user.shop_name,Address=request.user.Address,bill_no=billno(request))
+        return render (request,"newbill.html")
+    return redirect("/bill/")
