@@ -1,10 +1,36 @@
-.load{
-    justify-content: center;
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
+.load .main{
+    display: grid;
+    grid-template-columns:30% 70%;
+    grid-template-rows: 20%;
     background-image: url('registration.png');
     background-repeat: none;
     background-size: cover;
+}
+.billinfo{
+    grid-column-start:1;
+    grid-column-end:-1;
+    background-color: brown;
+}
+.personalinfo{
+    width: 50%;
+    text-align: left !important;
+    float: left;
+    padding-left: 15px;
+    
+}
+.sellerinfo{
+    width: 50%;
+    float:right;
+    text-align: right !important;
+    padding-right: 15px;
+    border-left: 1px dashed white;
+}
+.additem{
+    background-color: rgb(81, 126, 36);
+}
+.additem select,input{
+    width: 100%;
+}
+.billitem{
+    background-color: crimson;
 }
