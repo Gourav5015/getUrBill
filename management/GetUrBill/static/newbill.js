@@ -8,7 +8,7 @@ a.addEventListener('click',function(){
     console.log(itemname,quantity,csrf,billnumb)
     $.ajax({url:'/ajaxitem/',
     type:'POST',
-    data:`{'itemselected':${itemname},'quantity':${quantity},'csrfmiddlewaretoken':${csrf},'billnumber':${billnumb}}`,
+    data:`{"itemselected":"${itemname}","quantity":"${quantity}","billnumber":"${billnumb}"}`,
     contentType: 'application/json',
     dataType:'json',
     success:

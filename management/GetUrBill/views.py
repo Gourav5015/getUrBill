@@ -152,10 +152,13 @@ def createbill(request,c,b):
 def ajaxadditem(request):
     
     if(request.method=="POST"):
-        itemname=request.POST["itemselected"]
-        quantity=request.POST["quantity"]
+        body=json.loads(request.body.decode("utf-8"))
+        print("worked")
+        print(body)
+        itemname=body["itemselected"]
+        quantity=body["quantity"]
         print(quantity)
-        bill_number=request.POST["billnumber"]
+        bill_number=body["billnumber"]
         item_name=request.user.items_set.all().filter(item_name=itemname).first()
         bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
         price=int(item_name.selling_price)
