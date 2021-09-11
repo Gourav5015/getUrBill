@@ -1,14 +1,16 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required 
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Accounts, Bill_no, Customer,Items
+from .models import Accounts, Bill_no, Billitems, Customer,Items
 from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from .forms import UserCreationForm
 from management import settings
 from django.contrib import messages
 from django.http import JsonResponse
-import random,datetime
+import random,datetime,json
+from django.views.decorators.csrf import csrf_exempt
+
 
 def home(request):
     if (request.method=="POST"):
@@ -124,7 +126,9 @@ def billno(request):
     b=str(request.user.shop_name)+"-"+str(datetime.date.today())+"-"+ str(random.randint(10000,100000))
     return b
 def finalprice(price,discount):
-    return price-(discount*price/100)
+    print(price)
+    print(discount)
+    return price-(discount*price//100)
 def createbill(request,c,b):
     customer=request.user.customer_set.all().filter(contact_no=c).last()
     bill_num=customer.bill_no_set.all().filter(bill_no=b).first()
@@ -133,7 +137,7 @@ def createbill(request,c,b):
     if(request.method=="POST"):
         itemname=request.POST["itemselected"]
         quantity=request.POST["quantity"]
-        bill_number=request.POST["bill number"]
+        bill_number=request.POST["billnumber"]
         item_name=request.user.items_set.all().filter(item_name=itemname).first()
         bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
         price=int (item_name.selling_price)
@@ -144,5 +148,35 @@ def createbill(request,c,b):
         
 
     return render (request,"newbill.html",{"bill_number":bill_num,"customer":customer,"item":items,"bitem":billitem})
+@csrf_exempt
+def ajaxadditem(request):
+    
+    if(request.method=="POST"):
+        itemname=request.POST["itemselected"]
+        quantity=request.POST["quantity"]
+        print(quantity)
+        bill_number=request.POST["billnumber"]
+        item_name=request.user.items_set.all().filter(item_name=itemname).first()
+        bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
+        price=int(item_name.selling_price)
+        print(quantity)
+        print(item_name.quantity)
+        price=(price)*int(quantity)
+        item_name.quantity=int(item_name.quantity)-int(quantity)
+        item_name.save()
+        bill_n.billitems_set.create(item_name=itemname,quantity=quantity,price=price,discount=item_name.discount,Final_price=finalprice(price,item_name.discount))
+        billitem=list(Billitems.objects.all().filter(bill_no=bill_number)) 
+        l=[]
+        for i in billitem:
+            dict={}
+            dict["itemname"]=i.item_name
+            dict["quantity"]=i.quantity
+            dict["price"]=i.price
+            dict["discount"]=i.discount
+            dict["Final Price"]=i.Final_price
+            l.append(dict)
+        l.append({"Total Price":bill_n.get_total()})
+        print(billitem)
+        return JsonResponse({"items":(l)})
 
     
