@@ -2,7 +2,8 @@
 {% load static %}
 {% block title %}Create Bill{% endblock title %}
 {% block link %}
-<link rel="stylesheet" href="{% static 'newbill.css' %}">{% endblock link %}
+<link rel="stylesheet" href="{% static 'newbill.css' %}">
+{% endblock link %}
 
 <body>
         {% block body %}
@@ -25,7 +26,7 @@
 
                 </div>
                 <div class="additem">
-                        <form action="/createbill/" method="post">
+                        <form action="/createbill/{{customer.contact_no}}/{{bill_number.bill_no}}/" method="post" name="additem">
                       
                         {% csrf_token %}
                         <select name="itemselected" id="itemselected">
@@ -35,11 +36,34 @@
                         </select>
                         <input type="number" name="quantity" id="quantity">
                         <input type="hidden" name="bill number" id="bill number" value={{bill_number.bill_no}}>
-                        <button>Add</button>
                         <input type="submit" value="submit">
                 </form>
+                <button id="addbutton">Add</button>
                 </div>
-                <div class="billitem"></div>
+                <div class="billitem">
+                        <table>
+                                <tr>
+                                        <th>sl no.</th>
+                                        <th>itemname</th>
+                                        <th>price</th>
+                                        <th>discount</th>
+                                        <th>final price</th>
+                                </tr>
+                                {% for b in bitem %}
+                                <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{b.item_name}}</td>
+                                        <td>{{b.price}}</td>
+                                        <td>{{b.discount}}</td>
+                                        <td>{{b.Final_price}}</td>
+
+                                </tr>
+                                {% endfor %}
+
+                        </table>
+                        Total Price:{{bill_number.get_total}}
+                </div>
         </div>
+        <script src="{% static 'newbill.js' %}"></script>
         {% endblock body %}
 </body>
