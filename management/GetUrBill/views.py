@@ -134,19 +134,7 @@ def createbill(request,c,b):
     bill_num=customer.bill_no_set.all().filter(bill_no=b).first()
     items=request.user.items_set.all()
     billitem=bill_num.billitems_set.all()
-    if(request.method=="POST"):
-        itemname=request.POST["itemselected"]
-        quantity=request.POST["quantity"]
-        bill_number=request.POST["billnumber"]
-        item_name=request.user.items_set.all().filter(item_name=itemname).first()
-        bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
-        price=int (item_name.selling_price)
-        price=(price*int(quantity))
-        item_name.quantity=int(item_name.quantity)-int(quantity)
-        item_name.save()
-        bill_n.billitems_set.create(item_name=itemname,quantity=quantity,price=price,discount=item_name.discount,Final_price=finalprice(price,item_name.discount))
-        
-
+   
     return render (request,"newbill.html",{"bill_number":bill_num,"customer":customer,"item":items,"bitem":billitem})
 @csrf_exempt
 def ajaxadditem(request):
@@ -176,10 +164,9 @@ def ajaxadditem(request):
             dict["quantity"]=i.quantity
             dict["price"]=i.price
             dict["discount"]=i.discount
-            dict["Final Price"]=i.Final_price
+            dict["Final_Price"]=i.Final_price
             l.append(dict)
-        l.append({"Total Price":bill_n.get_total()})
+       # l.append({"Total_Price":bill_n.get_total()})
         print(billitem)
-        return JsonResponse({"items":(l)})
+        return JsonResponse({"items":(l),"Total_Price":bill_n.get_total()}) 
 
-    

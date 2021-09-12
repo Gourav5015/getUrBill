@@ -26,7 +26,7 @@
 
                 </div>
                 <div class="additem">
-                        <form action="/createbill/{{customer.contact_no}}/{{bill_number.bill_no}}/" method="post" name="additem">
+                        
                       
                         {% csrf_token %}
                         <select name="itemselected" id="itemselected">
@@ -36,12 +36,12 @@
                         </select>
                         <input type="number" name="quantity" id="quantity">
                         <input type="hidden" name="billnumber" id="billnumber" value={{bill_number.bill_no}}>
-                        <input type="submit" value="submit">
-                </form>
+                
+                
                 <button id="addbutton">Add</button>
                 </div>
                 <div class="billitem">
-                        <table>
+                        <table id="id_of_table">
                                 <tr>
                                         <th>sl no.</th>
                                         <th>itemname</th>
@@ -61,7 +61,8 @@
                                 {% endfor %}
 
                         </table>
-                        Total Price:{{bill_number.get_total}}
+                       <h3 id="total"> Total Price:{{bill_number.get_total}}</h3>
+
                 </div>
         </div>
         <script src="{% static 'newbill.js' %}"></script>
