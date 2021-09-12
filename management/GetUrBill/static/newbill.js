@@ -4,7 +4,12 @@ a.addEventListener('click',function(){
     itemname=document.getElementById("itemselected").value
     quantity=document.getElementById("quantity").value
     billnumb=document.getElementById("billnumber").value
-    console.log(itemname,quantity,billnumb)
+    max=document.getElementById("quantity").max
+    console.log(max)
+    if (Number(quantity)>Number(max)){
+        quantity=max
+        console.log(max)
+    }
     $.ajax({url:'/ajaxitem/',
     type:'POST',
     data:`{"itemselected":"${itemname}","quantity":"${quantity}","billnumber":"${billnumb}"}`,
@@ -12,7 +17,6 @@ a.addEventListener('click',function(){
     dataType:'json',
     success:
     function(data){
-        console.log(data)
       table=document.getElementById("id_of_table")
       table.innerHTML=""
       tr=document.createElement("tr")
@@ -54,8 +58,54 @@ a.addEventListener('click',function(){
             table.appendChild(finalprice)
         
         })
-        console.log(data.Total_Price)
+        select=document.getElementById("itemselected")
+        select.innerHTML=""
+        n=document.createElement("option")
+        n.setAttribute("value","none")
+        n.innerText="select"
+        select.appendChild(n)
+        data.itemname.forEach((d)=>{
+            n=document.createElement("option")
+            n.setAttribute("value",d)
+            n.innerText=d
+            select.appendChild(n)
+        })
+        document.getElementById("itemselected").value='none'
+        document.getElementById("quantity").value=''
+        document.getElementById("quantity").disabled=true
+        document.getElementById("addbutton").disabled=true
 total=document.getElementById("total")        
         total.innerText=`total price:${data.Total_Price}`
+        
     } });
 });
+
+item=document.getElementById("itemselected")
+item.addEventListener("change",function(){
+    if (item.value!=="none"){
+        document.getElementById("quantity").value=''
+        document.getElementById("quantity").disabled=true
+        document.getElementById("addbutton").disabled=true
+        $.ajax({
+            url:`/checkquantity/${item.value}`,
+            type:"GET",
+            success:function(data){
+                document.getElementById("quantity").setAttribute("max",data.quantity)
+            }
+        })
+        document.getElementById("quantity").removeAttribute("disabled")
+    }
+    else{
+        document.getElementById("quantity").disabled=true
+    }
+    
+})
+function check(){
+    quan=document.querySelector("#quantity")
+    if ( Number(quan.value) > Number(quan.max)){
+        console.log(quan.max);
+        console.log(quan.value);
+        quan.value=quan.max;
+    }
+    document.getElementById("addbutton").disabled=false
+}

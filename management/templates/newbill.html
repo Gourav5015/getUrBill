@@ -30,15 +30,18 @@
                       
                         {% csrf_token %}
                         <select name="itemselected" id="itemselected">
+                                <option value="none">select</option>
                                 {% for i in item %}
+                                {% if i.quantity > 0 %}
                                 <option value="{{i.item_name}}">{{i.item_name}}</option>
+                                {% endif %}
                                 {% endfor %}
                         </select>
-                        <input type="number" name="quantity" id="quantity">
+                        <input type="number" name="quantity" id="quantity" onblur="check()" disabled>
                         <input type="hidden" name="billnumber" id="billnumber" value={{bill_number.bill_no}}>
                 
                 
-                <button id="addbutton">Add</button>
+                <button id="addbutton" disabled>Add</button>
                 </div>
                 <div class="billitem">
                         <table id="id_of_table">

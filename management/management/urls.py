@@ -35,5 +35,6 @@ urlpatterns = [
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^admin/',(admin.site.urls)),
     path('ajaxitem/',views.ajaxadditem),
+    path('checkquantity/<str:item>/',views.checkquantity),
    
 ]

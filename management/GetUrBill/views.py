@@ -126,8 +126,6 @@ def billno(request):
     b=str(request.user.shop_name)+"-"+str(datetime.date.today())+"-"+ str(random.randint(10000,100000))
     return b
 def finalprice(price,discount):
-    print(price)
-    print(discount)
     return price-(discount*price//100)
 def createbill(request,c,b):
     customer=request.user.customer_set.all().filter(contact_no=c).last()
@@ -141,17 +139,12 @@ def ajaxadditem(request):
     
     if(request.method=="POST"):
         body=json.loads(request.body.decode("utf-8"))
-        print("worked")
-        print(body)
         itemname=body["itemselected"]
         quantity=body["quantity"]
-        print(quantity)
         bill_number=body["billnumber"]
         item_name=request.user.items_set.all().filter(item_name=itemname).first()
         bill_n=request.user.bill_no_set.all().filter(bill_no=bill_number).first()
         price=int(item_name.selling_price)
-        print(quantity)
-        print(item_name.quantity)
         price=(price)*int(quantity)
         item_name.quantity=int(item_name.quantity)-int(quantity)
         item_name.save()
@@ -166,7 +159,14 @@ def ajaxadditem(request):
             dict["discount"]=i.discount
             dict["Final_Price"]=i.Final_price
             l.append(dict)
-       # l.append({"Total_Price":bill_n.get_total()})
-        print(billitem)
-        return JsonResponse({"items":(l),"Total_Price":bill_n.get_total()}) 
+        item=request.user.items_set.all().exclude(quantity=0)
+        iname=[]
+        for i in item:
+            iname.append(i.item_name)
+    
+        return JsonResponse({"items":(l),"Total_Price":bill_n.get_total(),"itemname":iname}) 
 
+def checkquantity(request,item):
+    i=request.user.items_set.all().filter(item_name=item).first()
+    quantity=i.quantity
+    return JsonResponse({"quantity":quantity})
