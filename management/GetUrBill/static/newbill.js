@@ -103,8 +103,7 @@ item.addEventListener("change",function(){
 function check(){
     quan=document.querySelector("#quantity")
     if ( Number(quan.value) > Number(quan.max)){
-        console.log(quan.max);
-        console.log(quan.value);
+        
         quan.value=quan.max;
     }
     document.getElementById("addbutton").disabled=false

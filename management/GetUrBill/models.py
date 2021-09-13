@@ -53,6 +53,7 @@ class Bill_no(models.Model):
     shop_name=models.CharField(max_length=50)
     Address=models.TextField(default="")
     date_of_purchase=models.DateTimeField(default=datetime.now())
+    billpdf=models.FileField(default=None,null=True,blank=True)
     def __str__(self):
         return self.bill_no
 
@@ -70,6 +71,7 @@ class Billitems(models.Model):
     price=models.IntegerField(default=0)
     discount=models.IntegerField(default=0)
     Final_price=models.IntegerField(default=0)
+    
     def __str__(self):
         return self.bill_no.bill_no +" "+ self.item_name
 
