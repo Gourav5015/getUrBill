@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required 
 from django.contrib.admin.views.decorators import staff_member_required
@@ -10,7 +11,14 @@ from django.contrib import messages
 from django.http import JsonResponse
 import random,datetime,json
 from django.views.decorators.csrf import csrf_exempt
+from reportlab.platypus import SimpleDocTemplate, Table, Paragraph, TableStyle
+from django.core.files.base import File
 
+from reportlab.lib import colors
+
+from reportlab.lib.pagesizes import A4
+
+from reportlab.lib.styles import getSampleStyleSheet
 
 def home(request):
     if (request.method=="POST"):
@@ -170,3 +178,68 @@ def checkquantity(request,item):
     i=request.user.items_set.all().filter(item_name=item).first()
     quantity=i.quantity
     return JsonResponse({"quantity":quantity})
+
+ #generate pdf
+def geneate(request,b):
+    billno=Bill_no.objects.all().filter(bill_no=b).first()
+    bitems=billno.billitems_set.all()
+    c=billno.customer
+    tableData = [
+    ["Sl No.", "Item Name","quantity", "Price(Rs.)", "Discount(%)","Final Price"],
+    ]
+    j=1
+    for i in bitems:
+
+        l=[j,i.item_name,i.quantity,i.price,i.discount,i.Final_price]
+        tableData.append(l)
+        j+=1
+    docu = SimpleDocTemplate(b+".pdf", pagesize=A4)
+    styles = getSampleStyleSheet()
+    doc_style = styles["Title"]
+    left_style= styles["Heading3"]
+    small=styles["Heading5"]
+    doc_style.alignment = 1
+
+
+
+    title = Paragraph("Shop Name : "+request.user.shop_name,left_style)
+    billnu=Paragraph(b ,left_style)
+    customerD=Paragraph("Customer Details",styles["Heading3"])
+    name=Paragraph("Name :"+c.name,small)
+    ph_no=Paragraph("Phone Number : "+c.contact_no,small)
+    datepur=Paragraph("Date of Purchase :"+str(billno.date_of_purchase),small)
+
+    subtitle= Paragraph("Address :"+request.user.Address,small)
+    style = TableStyle([
+
+        ("BOX", (0, 0), (-1, -1), 1, colors.black),
+
+        ("GRID", (0, 0), (5, 5), 1, colors.black),
+
+        ("BACKGROUND", (0, 0), (5, 0), colors.skyblue),
+
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+
+        ("ALIGN", (0, 0), (-1, -1), "LEFT"),
+
+        ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+
+    ])
+
+    table = Table(tableData, style=style)
+    total=Paragraph("Total Price :"+str(billno.get_total()),small)
+    docu.build([billnu,title,datepur, subtitle,customerD,name,ph_no, table,total])
+
+    return 0
+
+
+def generateview(request,bill):
+    billn=Bill_no.objects.all().filter(bill_no=bill).first()
+    billno=billn.bill_no
+    d= geneate(request,billno)
+    if d==0:
+        with open(billno+'.pdf',"rb") as f:
+            billn.billpdf=File(f)
+            billn.save()
+
+    return HttpResponse("generated")

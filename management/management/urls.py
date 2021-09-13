@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'^admin/',(admin.site.urls)),
     path('ajaxitem/',views.ajaxadditem),
     path('checkquantity/<str:item>/',views.checkquantity),
+    path('generate/<str:bill>/',views.generateview),
    
 ]

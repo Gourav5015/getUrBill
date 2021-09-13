@@ -65,7 +65,7 @@
 
                         </table>
                        <h3 id="total"> Total Price:{{bill_number.get_total}}</h3>
-                        <button class="generate_bill">Generate Bill</button>
+                        <button class="generate_bill"><a href="/generate/{{bill_number.bill_no}}/"> Generate Bill</a></button>
                 </div>
         </div>
         <script src="{% static 'newbill.js' %}"></script>
