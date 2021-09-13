@@ -242,6 +242,7 @@ def generateview(request,bill):
         with open(billno+'.pdf',"rb") as f:
             billn.billpdf=File(f)
             billn.save()
+       
 
     return render(request,"download.html",{"key":billn})
 

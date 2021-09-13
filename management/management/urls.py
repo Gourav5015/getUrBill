@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from GetUrBill import views
+from django.conf import settings
 from django.conf.urls import url,include
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,4 +41,4 @@ urlpatterns = [
     path('generate/<str:bill>/',views.generateview),
     path('<str:phonenumber>/<str:b>/d/<str:id>/',views.deleteitem),
    
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
