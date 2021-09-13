@@ -39,7 +39,7 @@
                         </select>
                         <input type="number" name="quantity" id="quantity" onblur="check()" disabled>
                         <input type="hidden" name="billnumber" id="billnumber" value={{bill_number.bill_no}}>
-                
+                        <input type="hidden" name="contact" id="contact" value={{customer.contact_no}} >
                 
                 <button id="addbutton" disabled>Add</button>
                 </div>
@@ -48,17 +48,21 @@
                                 <tr>
                                         <th>sl no.</th>
                                         <th>itemname</th>
+                                        <th>quantity</th>
                                         <th>price</th>
                                         <th>discount</th>
                                         <th>final price</th>
+                                        <th>delete</th>
                                 </tr>
                                 {% for b in bitem %}
                                 <tr>
                                         <td>{{forloop.counter}}</td>
                                         <td>{{b.item_name}}</td>
+                                        <td>{{b.quantity}}</td>
                                         <td>{{b.price}}</td>
                                         <td>{{b.discount}}</td>
                                         <td>{{b.Final_price}}</td>
+                                        <td><a href="/{{customer.contact_no}}/{{bill_number.bill_no}}/d/{{b.id}}/">delete</a></td>
 
                                 </tr>
                                 {% endfor %}

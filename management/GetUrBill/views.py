@@ -166,6 +166,7 @@ def ajaxadditem(request):
             dict["price"]=i.price
             dict["discount"]=i.discount
             dict["Final_Price"]=i.Final_price
+            dict["id"]=i.id
             l.append(dict)
         item=request.user.items_set.all().exclude(quantity=0)
         iname=[]
@@ -214,7 +215,7 @@ def geneate(request,b):
 
         ("BOX", (0, 0), (-1, -1), 1, colors.black),
 
-        ("GRID", (0, 0), (5, 5), 1, colors.black),
+        ("GRID", (0, 0), (j, j), 1, colors.black),
 
         ("BACKGROUND", (0, 0), (5, 0), colors.skyblue),
 
@@ -242,4 +243,15 @@ def generateview(request,bill):
             billn.billpdf=File(f)
             billn.save()
 
-    return HttpResponse("generated")
+    return render(request,"download.html",{"key":billn})
+
+
+def deleteitem(request,id,phonenumber,b) :
+    i=Billitems.objects.all().filter(pk=int(id)).first()
+    item_name=i.item_name
+    q=i.quantity
+    l=request.user.items_set.all().filter(item_name=item_name).first()
+    l.quantity=int(l.quantity)+int(q)
+    l.save()
+    i.delete()
+    return redirect("/createbill/"+str(phonenumber)+"/"+str(b)+"/")

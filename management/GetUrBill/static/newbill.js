@@ -5,6 +5,7 @@ a.addEventListener('click',function(){
     quantity=document.getElementById("quantity").value
     billnumb=document.getElementById("billnumber").value
     max=document.getElementById("quantity").max
+    contact=document.getElementById("contact").value
     console.log(max)
     if (Number(quantity)>Number(max)){
         quantity=max
@@ -22,40 +23,55 @@ a.addEventListener('click',function(){
       tr=document.createElement("tr")
       s=document.createElement("th")
       i=document.createElement("th")
+      q=document.createElement("th")
       p=document.createElement("th")
       d=document.createElement("th")
       f=document.createElement("th")
+      de=document.createElement("th")
       s.innerText="sl no."
       i.innerText="itemname"
+      q.innerText="quantity"
       p.innerText="price"
       d.innerText="discount"
       f.innerText="final price"
+      de.innerText="delete"
       table.appendChild(tr)
       table.appendChild(s)
       table.appendChild(i)
+      table.appendChild(q)
       table.appendChild(p)
       table.appendChild(d)
       table.appendChild(f)
+      table.appendChild(de)
 
         data.items.forEach((d,counter)=>{
+            li=document.createElement("a")
+            li.setAttribute("href",`/${contact}/${billnumb}/d/${d.id}`)
+            li.innerText="delete"
             serialno=document.createElement("td")
             serialno.innerText=counter+1
             itemname=document.createElement("td")
             itemname.innerText=d.itemname
+            quantity=document.createElement("td")
+            quantity.innerText=d.quantity
             price=document.createElement("td")
             price.innerText=d.price
             discount=document.createElement("td")
             discount.innerText=d.discount
             finalprice=document.createElement("td")
             finalprice.innerText=d.Final_Price
+            delet=document.createElement("td")
+            delet.appendChild(li)
            tr=document.createElement("tr")
             
             table.appendChild(tr)
             table.appendChild(serialno)
             table.appendChild(itemname)
+            table.appendChild(quantity)
             table.appendChild(price)
             table.appendChild(discount)
             table.appendChild(finalprice)
+            table.appendChild(delet)
         
         })
         select=document.getElementById("itemselected")

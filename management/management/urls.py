@@ -37,5 +37,6 @@ urlpatterns = [
     path('ajaxitem/',views.ajaxadditem),
     path('checkquantity/<str:item>/',views.checkquantity),
     path('generate/<str:bill>/',views.generateview),
+    path('<str:phonenumber>/<str:b>/d/<str:id>/',views.deleteitem),
    
 ]
