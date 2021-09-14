@@ -9,6 +9,7 @@
         {% block body %}
         <div class="main">
                 <div class="billinfo">
+                        <h3>Bill Information</h3>
                         <div class="personalinfo">
                                 Name:{{customer.name}}
                                 <br>
@@ -29,6 +30,7 @@
                         
                       
                         {% csrf_token %}
+                        <label for="itemselected">Item Name</label>
                         <select name="itemselected" id="itemselected">
                                 <option value="none">select</option>
                                 {% for i in item %}
@@ -37,6 +39,7 @@
                                 {% endif %}
                                 {% endfor %}
                         </select>
+                        <label for="quantity">Quantity</label>
                         <input type="number" name="quantity" id="quantity" onblur="check()" disabled>
                         <input type="hidden" name="billnumber" id="billnumber" value={{bill_number.bill_no}}>
                         <input type="hidden" name="contact" id="contact" value={{customer.contact_no}} >
@@ -46,13 +49,13 @@
                 <div class="billitem">
                         <table id="id_of_table">
                                 <tr>
-                                        <th>sl no.</th>
-                                        <th>itemname</th>
-                                        <th>quantity</th>
-                                        <th>price</th>
-                                        <th>discount</th>
-                                        <th>final price</th>
-                                        <th>delete</th>
+                                        <th>Sl no.</th>
+                                        <th>Particulars</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Discount</th>
+                                        <th>Total Price</th>
+                                        <th>Delete</th>
                                 </tr>
                                 {% for b in bitem %}
                                 <tr>

@@ -27,7 +27,6 @@ class Items(models.Model):
     item_name=models.CharField(max_length=100)
     quantity=models.IntegerField(default=0)
     selling_price=models.IntegerField(default=0)
-    GST=models.IntegerField(default=9)
     discount=models.IntegerField(default=0)
 
     def __str__(self):

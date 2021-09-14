@@ -38,17 +38,16 @@ def dashboard(request):
         item_name=request.POST['item_name']
         quantity=request.POST['quantity']
         discount=request.POST['discount']
-        gst=request.POST['gst']
         price=request.POST['price']
         user=request.user
-        item=Items(user=user,item_name=item_name,quantity=quantity,GST=gst,discount=discount,selling_price=price)
+        item=Items(user=user,item_name=item_name,quantity=quantity,discount=discount,selling_price=price)
         item.save()
         return redirect("/dashboard/")
     #items=Items.objects.all().filter(user=request.user)
     items=request.user.items_set.all()
     context={"i":items}
     return render(request ,"dashboard.html",context)
-
+@login_required
 def Logout(request):
     logout(request)
     return redirect("/")
@@ -57,7 +56,7 @@ def delete(request,k):
     item=Items.objects.all().filter(item_id =int(k))
     item.delete()
     return redirect("/dashboard/")
-
+@login_required
 def edit(request,k):
     i=Items.objects.all().filter(item_id =int(k)).first()
     context={"item":i}
@@ -66,10 +65,9 @@ def edit(request,k):
         item_name=request.POST['item_name']
         quantity=request.POST['quantity']
         discount=request.POST['discount']
-        gst=request.POST['gst']
         price=request.POST['price']
         user=request.user
-        item=Items(item_id=i.item_id,user=request.user,item_name=item_name,quantity=quantity,GST=gst,discount=discount,selling_price=price)
+        item=Items(item_id=i.item_id,user=request.user,item_name=item_name,quantity=quantity,discount=discount,selling_price=price)
         item.save()
         return redirect ("/dashboard/")
 
@@ -114,7 +112,7 @@ def check(request,phone):
     else:
         return JsonResponse( {"status":"OK"})
 
-
+@login_required
 def bill(request):
     items=request.user.items_set.all()
     if request.method=="POST":
@@ -125,9 +123,10 @@ def bill(request):
         bill_num=customer.bill_no_set.create(user=request.user,shop_name=request.user.shop_name,Address=request.user.Address,bill_no=billno(request))
         return redirect("/createbill/"+str(phonenumber)+"/"+str(bill_num.bill_no)+"/")
     return render (request, "bill.html",{"i":items})
-
+@login_required
 def myaccount(request):
-    return render (request, "myaccount.html")
+    bill=request.user.bill_no_set.all()
+    return render (request, "myaccount.html",{"b":bill})
 
 # bill no function
 def billno(request):
@@ -135,6 +134,7 @@ def billno(request):
     return b
 def finalprice(price,discount):
     return price-(discount*price//100)
+@login_required
 def createbill(request,c,b):
     customer=request.user.customer_set.all().filter(contact_no=c).last()
     bill_num=customer.bill_no_set.all().filter(bill_no=b).first()
@@ -180,6 +180,7 @@ def checkquantity(request,item):
     quantity=i.quantity
     return JsonResponse({"quantity":quantity})
 
+
  #generate pdf
 def geneate(request,b):
     billno=Bill_no.objects.all().filter(bill_no=b).first()
@@ -215,7 +216,7 @@ def geneate(request,b):
 
         ("BOX", (0, 0), (-1, -1), 1, colors.black),
 
-        ("GRID", (0, 0), (j, j), 1, colors.black),
+        ("GRID", (0, 0), (j+3, j+3), 1, colors.black),
 
         ("BACKGROUND", (0, 0), (5, 0), colors.skyblue),
 
@@ -233,7 +234,7 @@ def geneate(request,b):
 
     return 0
 
-
+@login_required
 def generateview(request,bill):
     billn=Bill_no.objects.all().filter(bill_no=bill).first()
     billno=billn.bill_no

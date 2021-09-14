@@ -15,14 +15,12 @@
               <th>Quantity</th>
               <th>Discount</th>
               <th>Price</th>
-              <th>GST</th>
             </tr>
             <tr>
                 <td><input type="text" name="item_name"id="Particulars" placeholder="enter item" required></td>
                 <td><input type="number" name="quantity" id="quantity" placeholder="Enter Quantity" required></td>
                 <td><input type="number" name="discount" id="discount"placeholder="Enter Discount" required></td>
                 <td><input type="number" name="price" id="price"placeholder="Enter Price" required></td>
-                <td><input type="number" name="gst" id="gst"placeholder="Enter GST" required></td>
             </tr>
           </table>
 </div>
@@ -39,7 +37,6 @@
       <th>Quantity</th>
       <th>Discount</th>
       <th>Price</th>
-      <th>GST</th>
       <th>Action</th>
     </tr>
     {% for j in i %}
@@ -49,7 +46,6 @@
       <td>{{j.quantity}}</td>
       <td>{{j.discount}} %</td>
       <td>₹ {{j.selling_price}}</td>
-      <td>{{j.GST}} %</td>
       <td><a href="/delete/{{j.item_id}}"onclick="load()">Delete</a> | <a href="/edit/{{j.item_id}}"onclick="load()">Edit</a></td>
     </tr>
     {% endfor %}
