@@ -45,7 +45,7 @@
   <div class="loginBox">
 		<img src="{% static 'user.png' %}" class="user">
 		<h2>Log In Here</h2>
-		<form action="/" method="POST">
+		<form action="/" method="POST" autocomplete="off">
       {% csrf_token %}
 			<p>Phone Number</p>
 			<input type="text" name = "phone_number" placeholder="Enter Phone Number">
@@ -65,6 +65,13 @@
 </section>
 <section class="contact" id="contact">
   <h1 class="text-center">Contact Us</h1>
+  <h2>Team members</h2>
+ <div class="team">
+   <span>Yukti Butolia</span>
+   <span>Shreyansh Jhawar</span>
+   <span>Gourav Agarwal</span>
+   <span>Dipesh Mahato</span>
+ </div>
 </section>
 <footer class="footer text-center">GetUrBill.com</footer>
 <script src="{% static 'script.js' %}" type="text/javascript"></script>

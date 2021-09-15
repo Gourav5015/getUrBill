@@ -6,7 +6,7 @@
     <h1 class="text-center">
     <strong>welcome {{request.user.shop_name}}</strong></h1>
     <h1 class="text-center">Add Items</h1>
-    <form action="/dashboard/" method="post" id="form" name="form">
+    <form action="/dashboard/" method="post" id="form" name="form" autocomplete="off">
         {% csrf_token %}
     <div class="form-group" id="form-group">
         <table>

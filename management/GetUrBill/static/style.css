@@ -182,7 +182,7 @@ h2
 .col-8 h2{
 	color: white;
 	top: 80%;
-	left:45%;
+	left:35%;
 	position:absolute;
 	font-family: 'Times New Roman';
 	font-size: 50px;
@@ -190,8 +190,17 @@ h2
 .col-8 h3{
 	color: white;
 	top: 70%;
-	left: 30%;
+	left: 20%;
 	position:absolute;
 	font-family: 'Times New Roman';
 	font-size: 50px;
+}
+.contact .team span{
+    width : 25%;
+	padding : 5%;
+}
+.contact .team{
+	display : flex;
+	align-items: center;
+	justify-content: center;
 }
